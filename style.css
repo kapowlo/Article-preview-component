@@ -1,6 +1,50 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/*import font 'Manrope'*/
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/*----------------------CSS RESET------------------------ */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+
+/*----------------------CUSTOM VARIABLES------------------------ */
+:root{
+
+--very-dark-grayish-blue: hsl(217, 19%, 35%);
+--desaturated-dark-blue: hsl(214, 17%, 51%);
+--grayish-blue: hsl(212, 23%, 69%);
+--light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/*----------------------GENERAL STYLES------------------------ */
+
+body{
+  height: 100vh;
+  font-family: "Manrope", sans-serif;
+  
+}
+img{
+  /*once i add the border on the div.card the img section should be aligned with the text-based section under it  */
+  max-width: 100%;
+  display: block;
+}
+
+/*----------------------MAIN CONTAINER STYLES---------------------- */
+main.container{
+  height: 100%;
+  padding: 1em 2em;
+  background-color: var(--light-grayish-blue);
+}
+
+/* ---------------------------------ATTRIBUTION STY;ES ------------------------------------- */
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
