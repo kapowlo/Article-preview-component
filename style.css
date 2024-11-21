@@ -23,19 +23,45 @@
 body{
   height: 100vh;
   font-family: "Manrope", sans-serif;
+ 
   
 }
-img{
-  /*once i add the border on the div.card the img section should be aligned with the text-based section under it  */
-  max-width: 100%;
+img:not(.card_image){
+  /*targets all image elements(avatar img  + share svg) except the one with the class card_image  */
+ max-width: 100%; 
   display: block;
 }
+
+.card_image{
+  width: 100%;/*without this the card image does not fill up the left section(there is some whitespace) */
+  display: block;
+} 
 
 /*----------------------MAIN CONTAINER STYLES---------------------- */
 main.container{
   height: 100%;
   padding: 1em 2em;
   background-color: var(--light-grayish-blue);
+}
+
+/*---------------------CARD SECTIONM----------------------------- */
+.card{
+  border: 2px solid firebrick;
+  background-color: white;
+}
+
+/*------------------------IMAGE SECTION(LEFT)-------------------------- */
+.card_image-section{
+  /*make sure the image alwas takes up the full space of this container */
+  border: 4px solid dodgerblue;
+  margin-bottom:2.5rem;
+}
+
+
+/*-------------------------TEXT SECTION(RIGHT)-------------------------- */
+.card__text-section-avatar-share{
+  background-color: white;
+
 }
 
 /* ---------------------------------ATTRIBUTION STY;ES ------------------------------------- */
