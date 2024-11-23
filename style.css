@@ -43,6 +43,12 @@ main.container{
   padding: 1em 2em;
   background-color: var(--light-grayish-blue);
   border: 8px solid black;
+
+  /*center the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /*---------------------CARD SECTIONM----------------------------- */
