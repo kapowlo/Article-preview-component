@@ -28,12 +28,12 @@ body{
 }
 img:not(.card_image){
   /*targets all image elements(avatar img  + share svg) except the one with the class card_image  */
- max-width: 100%; 
+ max-inline-size: 100%; 
   display: block;
 }
 
 .card_image{
-  width: 100%;/*without this the card image does not fill up the left section(there is some whitespace) */
+  inline-size: 100%;/*without this the card image does not fill up the left section(there is some whitespace) */
   display: block;
 } 
 
@@ -42,35 +42,94 @@ main.container{
   height: 100%;
   padding: 1em 2em;
   background-color: var(--light-grayish-blue);
+  border: 8px solid black;
 }
 
 /*---------------------CARD SECTIONM----------------------------- */
 .card{
-  border: 2px solid firebrick;
+  
   background-color: white;
+
+  /* make sure the top bottom  left/right have rounded corners
+   this property should have the same vaue for the card_image and text-section
+  */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius: 10px;
 }
 
-/*------------------------IMAGE SECTION(LEFT)-------------------------- */
-.card_image-section{
-  /*make sure the image alwas takes up the full space of this container */
-  border: 4px solid dodgerblue;
-  margin-bottom:2.5rem;
+/*------------------------IMAGE SECTION(TOP or LEFT)-------------------------- */
+
+.card_image{
+   /* make sure the top and bottom left/right have rounded corners */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 
-/*-------------------------TEXT SECTION(RIGHT)-------------------------- */
+/*-------------------------TEXT SECTION(BOTTOM or RIGHT)-------------------------- */
 .card__text-section-avatar-share{
-  background-color: white;
+  padding: 1.5em; /*add space inside of this section  */
+  background-color: white; /*can remove this because i added white bg to the card (see line:48-50) */
+  
+  /* make sure the bottom  left/right have rounded corners */
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius: 10px;
+}
+.text-section_title{
+  margin-block-start:0.55rem; /*the h1 title has a bit more margin top */
+ 
+  font-size: 1.27rem;
+  font-weight: 700;
+  color: var(--very-dark-grayish-blue);
+}
+.text-section_paragraph{
+  margin-block-start:1.25rem; /*create space between paragraph and h1 title  */
+  margin-block-end:1.25rem; /*create space between paragraph and content below it  */
 
+
+
+  font-size: 0.81rem;
+  line-height: 1.5;
+  color: var(--desaturated-dark-blue);
+}
+
+.card_avatar-p-shareicon-flex-container{
+  display: flex;
+  align-items: center;
+ /*put a gap in order to create some space between profile-picture and the two p ele */
+  gap:1em;
+}
+
+.paragraph-wrapper p{
+  font-size: 0.81rem;
+  
+}
+
+.profile-picture{
+  border-radius: 50%;
+}
+
+.share-icon-container{
+  margin-left:auto; /*push the share icon all the way to the right */
 }
 
 /* ---------------------------------ATTRIBUTION STY;ES ------------------------------------- */
 
 .attribution {
-  font-size: 11px;
+  margin-top:1rem;
+  font-size: 12px;
   text-align: center;
 }
 
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+
+/*---------------------MEDIA  QUERIES(FOR LARGER SCREEN)--------------------  */
+/*start around 800px for first br second br will be for larger screen 1100px+
+*/
