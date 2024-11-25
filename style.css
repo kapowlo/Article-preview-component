@@ -21,7 +21,8 @@
 /*----------------------GENERAL STYLES------------------------ */
 
 body{
- /*  height: 100vh; */ /*either removing the height or settig min-height:100vh; fixes the problem where the card was overflowing */
+  height: 100vh; /*need to put a height on body otherwise there is some whitespace*/
+ 
   font-family: "Manrope", sans-serif;
  
   
@@ -39,7 +40,7 @@ img:not(.card_image){
 
 /*----------------------MAIN CONTAINER STYLES---------------------- */
 main.container{
-  height: 100%;
+  min-height: 100%; /*important min-height make sure the card doesnt overflow outside of this container */
   padding: 1em 2em;
   background-color: var(--light-grayish-blue);
   border: 8px solid black;
@@ -156,3 +157,22 @@ color: var(--very-dark-grayish-blue);
 /*---------------------MEDIA  QUERIES(FOR LARGER SCREEN)--------------------  */
 /*start around 800px for first br second br will be for larger screen 1100px+
 */
+
+@media screen and (min-width:800px){
+  main.container{
+    background-color:orangered;
+
+    
+  }
+  .card.d-flex{
+    max-width: 375px; /*stops card from getting too big */
+  }
+
+}
+
+@media screen and (min-width:1000px){
+  main.container{
+    background-color: bisque;
+  }
+ 
+}
