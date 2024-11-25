@@ -88,10 +88,7 @@ main.container{
 .text-section_title{
   margin-block-start:0.55rem; /*the h1 title has a bit more margin top */
  
-  font-size: 1.27rem; /*add calc to make font-size more responsive, although i wont be able to control the exact size
-  i should be able to control the range via clamp func: sth like this should work  clamp(1rem, 0.75rem + 1.5vw, 2rem);
-  ill adjust the value
-  */
+  font-size:clamp(1.17rem,0.75rem + 1.5vw, 2rem) ; /* font-size wont go below ~18px and will scale based on screen size */
   font-weight: 700;
   color: var(--very-dark-grayish-blue);
 }
@@ -99,14 +96,15 @@ main.container{
   margin-block-start:1.25rem; /*create space between paragraph and h1 title  */
   margin-block-end:1.25rem; /*create space between paragraph and content below it  */
 
-
-
-  font-size: 0.81rem;/*add calc to make font-size more responsive, although i wont be able to control the exact size
-  i should be able to control the range via clamp func: sth like this should work  clamp(1rem, 0.75rem + 1.5vw, 2rem);
-  ill adjust the value
+  /*at 799px right before first media query br i want the font-size to be around 16px
+  but when the screen size is smaller like 320px i want font-size to be ~13px
   */
+  font-size:clamp(0.81rem, 0.65rem + 1vw ,1rem); 
+  
+  
   line-height: 1.5;
   color: var(--desaturated-dark-blue);
+  
 }
 
 .card_avatar-p-shareicon-flex-container{
@@ -117,12 +115,9 @@ main.container{
 }
 
 .paragraph-wrapper p{
-  /*add calc to make font-size more responsive, although i wont be able to control the exact size
-  i should be able to control the range via clamp func: sth like this should work  clamp(1rem, 0.75rem + 1.5vw, 2rem);
-  ill adjust the value
+  /* same as with the text-section paragraph  small screen size font-size ~13px  bigger screen size 799px font-size:~16px;
   */
-  font-size: 0.81rem;
-  
+  font-size:clamp(0.81rem, 0.65rem + 1vw ,1rem); 
 }
 
 .profile-picture{
