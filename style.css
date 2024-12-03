@@ -155,7 +155,8 @@ color: var(--very-dark-grayish-blue);
 
 
 /*---------------------MEDIA  QUERIES(FOR LARGER SCREEN)--------------------  */
-/*start around 800px for first br second br will be for larger screen 1100px+
+/*at around 800px the card gets too big so i will limit the width
+second media query will be at ~1000px 
 */
 
 @media screen and (min-width:800px){
@@ -164,15 +165,32 @@ color: var(--very-dark-grayish-blue);
 
     
   }
-  .card.d-flex{
+  .card{
     max-width: 375px; /*stops card from getting too big */
   }
 
 }
 
+
 @media screen and (min-width:1000px){
   main.container{
     background-color: bisque;
+  }
+  .card{
+    max-width:900px; /*override's previous media query's max-width value of 375px */
+    
+    /*makes the image go next to the text-section, however without setting max-width on card and height:100% on image 
+    the image is way too small */
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+   
+  }
+  
+ .card_image{
+   height: 100%;
+   border-radius:0; /*remove border radius to clear whitespace */
+   object-fit:cover; /*The image lost its aspect ration(the vase in particular looks weird without object-fit:cover)
+   however setting that property means the image will get clipped in order to maintain the aspect ratio */
   }
  
 }
