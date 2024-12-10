@@ -38,6 +38,10 @@ img:not(.card_image){
   display: block;
 } 
 
+.share-icon-2,.share-icon{
+  cursor: crosshair;
+}
+
 /*----------------------MAIN CONTAINER STYLES---------------------- */
 main.container{
   min-height: 100%; /*important min-height make sure the card doesnt overflow outside of this container */
@@ -79,13 +83,17 @@ main.container{
 
 /*-------------------------TEXT SECTION(BOTTOM or RIGHT)-------------------------- */
 .card__text-section-avatar-share{
-  padding: 1.5em; /*add space inside of this section  */
   background-color: white; /*can remove this because i added white bg to the card (see line:48-50) */
   
   /* make sure the bottom  left/right have rounded corners */
   border-bottom-left-radius:10px;
   border-bottom-right-radius: 10px;
 }
+.card__text-section-avatar-share > *:not(.hidden-mobile){
+  margin: 1.5em; /*the div with the class hidden mobile should be touching left-right edge */
+
+}
+
 .text-section_title{
   margin-block-start:0.55rem; /*the h1 title has a bit more margin top */
  
@@ -139,6 +147,28 @@ color: var(--very-dark-grayish-blue);
   border-radius: 50%;
 
   margin-left:auto; /*push the share icon all the way to the right */
+}
+
+.hidden-mobile{
+  padding:2em;
+  background-color: var(--very-dark-grayish-blue);
+  display: flex;
+  gap:1.5em;
+ 
+}
+
+.hidden-mobile p{
+  text-transform: uppercase;
+  color: var(--desaturated-dark-blue);
+  letter-spacing: 2ch;
+}
+
+.share-icon-2{
+  margin-left: auto; /*push share img all the way to the right */
+}
+
+.hidden{
+  display: none;
 }
 
 /* ---------------------------------ATTRIBUTION STY;ES ------------------------------------- */
