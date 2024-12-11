@@ -89,8 +89,12 @@ main.container{
   border-bottom-left-radius:10px;
   border-bottom-right-radius: 10px;
 }
-.card__text-section-avatar-share > *:not(.hidden-mobile){
-  margin: 1.5em; /*the div with the class hidden mobile should be touching left-right edge */
+.card__text-section-avatar-share{
+  /*everything inside this section will have some margin  
+  but the div with the class hidden-mobile should be touching left-right bottom edge, so this rule will be overwritten via
+  setting negative margin and using !important but only for the hidden-mobile  */
+  margin: 1.5em; 
+ 
 
 }
 
@@ -150,6 +154,7 @@ color: var(--very-dark-grayish-blue);
 }
 
 .hidden-mobile{
+  margin:0 -1.5em -1.5em -1.5em !important; /*this div should take up the full width and have no white space except at the top */
   border-bottom-left-radius:10px ;
   border-bottom-right-radius: 10px;
   padding:2em;
@@ -162,11 +167,26 @@ color: var(--very-dark-grayish-blue);
 .hidden-mobile p{
   text-transform: uppercase;
   color: var(--desaturated-dark-blue);
-  letter-spacing: 2ch;
+  letter-spacing: 0.51em;
+  align-self: center;
 }
 
 .share-icon-2{
-  margin-left: auto; /*push share img all the way to the right */
+  filter: brightness(0) invert(1);
+}
+
+.share-icon-2-container{
+  margin-left: auto; /*push share img container all the way to the right */
+  background-color: var(--desaturated-dark-blue);
+  width: 25px;
+  height:25px;
+
+  border-radius: 50%;
+  
+  /*centers the share svg img inside of its container note:flexbox doesnt center it for some reason */
+  align-self: center;
+  display: grid;
+  place-content: center;
 }
 
 .hidden{
