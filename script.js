@@ -38,6 +38,7 @@ function acrticlePreviewActiveState(){
   
   if(!determineScreenSize(screenWidth)){
     console.log(`your screen is small it is currently ${screenWidth}px \napplying mobile layout styles`);
+    
     shareSvgImg.addEventListener("click",(e)=>{
       console.log(`You clicked on this element: ${e.target.outerHTML}`,shareSvgImg);
       if(!jsHiddenContainer.classList.contains('hidden')){
@@ -46,7 +47,9 @@ function acrticlePreviewActiveState(){
       }
      
       else{
-        jsHiddenContainer.classList.remove('hidden'); // if the element has the class remove it
+        // if the element has the class remove it, the hiddencontainer and its content appears on the webpage
+        jsHiddenContainer.classList.remove('hidden'); 
+      
       }
      
     })
