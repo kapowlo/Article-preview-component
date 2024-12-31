@@ -157,9 +157,10 @@ color: var(--very-dark-grayish-blue);
   margin:0 -1.5em -1.5em -1.5em !important; /*this div should take up the full width and have no white space except at the top */
   border-bottom-left-radius:10px ;
   border-bottom-right-radius: 10px;
-  padding:2em;
+  padding:2em 0.5em; /*reduce horizontal padding(fixes the issue of the svg image disappearing when screen is small) */
   background-color: var(--very-dark-grayish-blue);
   display: flex;
+  justify-content: space-between; /*push share icon all the way to the right and keep the three social icons all the way left*/
   gap:1.5em;
  
 }
@@ -171,12 +172,17 @@ color: var(--very-dark-grayish-blue);
   align-self: center;
 }
 
+.wrapper-hidden-mobile-p-img{
+  display: flex;
+  gap:0.4em;
+}
+
 .share-icon-2{
+  
   filter: brightness(0) invert(1);
 }
 
 .share-icon-2-container{
-  margin-left: auto; /*push share img container all the way to the right */
   background-color: var(--desaturated-dark-blue);
   width: 25px;
   height:25px;
@@ -246,3 +252,5 @@ second media query will be at ~1000px
   }
  
 }
+
+
