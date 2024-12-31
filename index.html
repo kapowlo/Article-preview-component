@@ -39,11 +39,15 @@
 
 
         <!--div below should be hidden initially then appear dynamically via click event in scrips.js file-->
+        <!--2024-12-31: wrap the p and all three images in a wrapper and use display flex on hidden-mobile 
+        then use justify content space between to create some distance between the wrapper and the share-icon 2 container-->
         <div class="hidden-mobile hidden" id="js-hidden-mobile">
-          <p>share</p>
-          <img src="images/icon-facebook.svg" alt="">
-          <img src="images/icon-twitter.svg" alt="">
-          <img src="images/icon-pinterest.svg" alt="">
+          <div class="wrapper-hidden-mobile-p-img">
+            <p>share</p>
+            <img src="images/icon-facebook.svg" alt="">
+            <img src="images/icon-twitter.svg" alt="">
+            <img src="images/icon-pinterest.svg" alt="">
+          </div>
 
           <div class="share-icon-2-container">
             <img src="images/icon-share.svg" alt="" width="15" height="15" class="share-icon-2" id="js-share-icon-2">
