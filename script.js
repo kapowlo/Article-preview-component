@@ -15,16 +15,33 @@ const jsShareIcon2 = document.getElementById('js-share-icon-2');
 const jsHiddenMobile = document.getElementById('js-hidden-mobile');
 const jsHiddenContainer =document.getElementById('js-hidden-container');
 
+/*the function debounce limits the frequency of my resize event by adding a timer(wait time)  
+this is a bit too advanced as i still dont understand closure 
+
+but i got this code from 
+https://dev.to/yanagisawahidetoshi/boost-your-javascript-performance-with-the-debounce-technique-497i
+*/ 
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+      const context = this;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+          func.apply(context, args);
+      }, wait);
+  };
+}
+
+const handleResize = debounce(() => {
+  screenWidth = body.clientWidth;
+  console.log(`Screen resized updated width: ${screenWidth}px`);
+}, 300);
+
 /*this resize event listener i added to window object, will update screenWidth variable when window size is modified 
 fixes issue where after changing screen size from mobile to pc the screenwidth variable would'nt update correctly
 */
+
 window.addEventListener('resize',handleResize);
-
-function handleResize(){
-  screenWidth=body.clientWidth;
-  return screenWidth;
-}
-
 
 function determineScreenSize(vw){
   /* when this func is called it will return true or false based on user screen size
@@ -54,7 +71,7 @@ so all func call should be in the click even for the svg image
 console.log('\n');
 
 shareSvgImg.addEventListener("click",()=>{
-  console.log('checking screen size... \n' +'its ' +  screenWidth + 'px');
+  console.log(`checking screen size... \n its ${screenWidth} px`);
   handleResize();
   
   //pass the vw of the user as arg to determineScreenSize func, will apply correct layout based on true/false
