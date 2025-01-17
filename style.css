@@ -151,8 +151,34 @@ color: var(--very-dark-grayish-blue);
   border-radius: 50%;
 
   margin-left:auto; /*push the share icon all the way to the right */
+  position: relative;
+}
+/* layout for desktop these styles should only appear when user has big enough screen */
+.wrapper-hidden-desktop-p-img{
+  width:250px; /*using px cuz it always needs to be this specific size */
+  padding:0.88em;
+  
+  border-radius: 8px;
+  background-color: var(--very-dark-grayish-blue);
+  
+
+  position:absolute;
+  top: -70px;
+  left:-100px;
+ 
+
+  display: flex;
+  justify-content: center;
+  gap:1em;
 }
 
+.wrapper-hidden-desktop-p-img p{
+  /*reduce font of share text*/
+  font-size: 0.85rem;
+}
+
+
+/* layout for mobile these styles should only appear when user screen is under 1000px */
 .hidden-mobile{
   margin:0 -1.5em -1.5em -1.5em !important; /*this div should take up the full width and have no white space except at the top */
   border-bottom-left-radius:10px ;
@@ -165,7 +191,7 @@ color: var(--very-dark-grayish-blue);
  
 }
 
-.hidden-mobile p{
+.upperCase-share-text{
   text-transform: uppercase;
   color: var(--desaturated-dark-blue);
   letter-spacing: 0.51em;
