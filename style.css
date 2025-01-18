@@ -39,7 +39,7 @@ img:not(.card_image){
 } 
 
 .share-icon-2,.share-icon{
-  cursor: crosshair;
+  cursor: pointer;
 }
 
 /*----------------------MAIN CONTAINER STYLES---------------------- */
