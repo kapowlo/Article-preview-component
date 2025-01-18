@@ -13,7 +13,12 @@ const shareSvgContainer = document.querySelector('.share-icon-container');
 const jsShareIcon2 = document.getElementById('js-share-icon-2');
 
 const jsHiddenMobile = document.getElementById('js-hidden-mobile');
+
 const jsHiddenContainer =document.getElementById('js-hidden-container');
+
+const jsHiddenDesktop = document.getElementById('js-hidden-desktop');
+
+
 
 /*the function debounce limits the frequency of my resize event by adding a timer(wait time)  
 this is a bit too advanced as i still dont understand closure 
@@ -79,7 +84,7 @@ shareSvgImg.addEventListener("click",()=>{
     console.log('mobile device detected...');
     if(!jsHiddenContainer.classList.contains('hidden')){
       jsHiddenContainer.classList.add('hidden') // when class hidden is on it means the element is hidden
-      jsHiddenMobile.classList.remove('hidden') // remove hidden class so the element will now appear on the webpage
+      jsHiddenMobile.classList.remove('hidden') //remove hidden class,the element now appears on the webpage(so the mobile activestate should appear)
   }
   else{
     // if the element has the class remove it, the hiddencontainer and its content appears on the webpage
@@ -89,16 +94,31 @@ shareSvgImg.addEventListener("click",()=>{
   jsShareIcon2.addEventListener('click',()=>{
     // when the second share img is clicked re introduce the old layout and remove the mobile active layout by adding hidden class
     /*when 2nd share svg img is clicked must remove hidden class on container so old layout can re appear and new one disappears */
-    jsHiddenContainer.classList.remove('hidden') 
-    jsHiddenMobile.classList.add('hidden')
+    jsHiddenContainer.classList.remove('hidden') //remove hidden class, go back to original non-activestate layout
+    jsHiddenMobile.classList.add('hidden') //  add hidden class, so mobile activestate should disappear 
   })
     
   }
 
 
-  /*pc layout */
+  /*pc layout   jsHiddenDesktop.classList.toggle('hidden')*/
   else{
     console.log('\n pc master race layout...');
+    if(jsHiddenDesktop.classList.contains('hidden')){
+      
+      jsHiddenDesktop.classList.remove('hidden') // remove hidden class, the pc active state will be visible
+    }
+    else{
+      jsHiddenDesktop.classList.add('hidden') // add hidden class, the pc active state should not be visible
+    }
+
+    /* fix bug: when going from desktop active state, reducing screen size to mobile,then clicking on share svg img
+    the mobile active state appears correctly, but then when clicking on the second share svg img the layout would go back to pc active state
+    instead of displaying the original mobile layout(test by commentting out the code below)
     
+    */
+    jsShareIcon2.addEventListener('click',()=>{
+      jsHiddenDesktop.classList.add('hidden')
+    })
   }
 })
