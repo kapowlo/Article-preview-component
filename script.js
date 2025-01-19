@@ -55,12 +55,12 @@ function determineScreenSize(vw){
   if(vw >= 1000){
     console.log(`applying pc layout your viewport width is :${screenWidth}px`);
     
-    return true
+    return true;
   }
   else{
     console.log(`applying mobile layout your viewport width is :${screenWidth}px`);
     
-    return false
+    return false;
     
   }
 }
@@ -83,8 +83,8 @@ shareSvgImg.addEventListener("click",()=>{
   if(!determineScreenSize(screenWidth)){
     console.log('mobile device detected...');
     if(!jsHiddenContainer.classList.contains('hidden')){
-      jsHiddenContainer.classList.add('hidden') // when class hidden is on it means the element is hidden
-      jsHiddenMobile.classList.remove('hidden') //remove hidden class,the element now appears on the webpage(so the mobile activestate should appear)
+      jsHiddenContainer.classList.add('hidden'); // when class hidden is on it means the element is hidden
+      jsHiddenMobile.classList.remove('hidden'); //remove hidden class,the element now appears on the webpage(so the mobile activestate should appear)
   }
   else{
     // if the element has the class remove it, the hiddencontainer and its content appears on the webpage
@@ -94,8 +94,8 @@ shareSvgImg.addEventListener("click",()=>{
   jsShareIcon2.addEventListener('click',()=>{
     // when the second share img is clicked re introduce the old layout and remove the mobile active layout by adding hidden class
     /*when 2nd share svg img is clicked must remove hidden class on container so old layout can re appear and new one disappears */
-    jsHiddenContainer.classList.remove('hidden') //remove hidden class, go back to original non-activestate layout
-    jsHiddenMobile.classList.add('hidden') //  add hidden class, so mobile activestate should disappear 
+    jsHiddenContainer.classList.remove('hidden'); //remove hidden class, go back to original non-activestate layout
+    jsHiddenMobile.classList.add('hidden'); //  add hidden class, so mobile activestate should disappear 
   })
     
   }
@@ -118,7 +118,35 @@ shareSvgImg.addEventListener("click",()=>{
     
     */
     jsShareIcon2.addEventListener('click',()=>{
-      jsHiddenDesktop.classList.add('hidden')
+      jsHiddenDesktop.classList.add('hidden');
     })
   }
+})
+
+/*fix issue: once the mobile activestate is visible, if i increase the screen size to be above 1000px
+the mobile active state stays present.
+Same issue when the desktop active state is isible and ireduce the screen size to be below 1000px
+the desktop active state stays present
+
+
+solution : whenever user adjust his screen remove the active state layout
+
+
+*/
+
+
+// on the window object add an resize event second arg arrow func
+
+window.addEventListener('resize',()=>{
+  //anytime user resizes his screen remove the active state layout if it is visible by adding the class hidden to mobile or desktop div
+  if(!jsHiddenMobile.classList.contains('hidden')){
+      // if hidden class is absent element is visible
+      jsHiddenMobile.classList.add('hidden');
+      jsHiddenContainer.classList.remove('hidden'); // needed to fully bring back original mobile layout(not active state)
+  }
+  else if(!jsHiddenDesktop.classList.contains('hidden')){
+    // if hidden class is absent element is visible
+    jsHiddenDesktop.classList.add('hidden');
+  }
+  handleResize(); // limits frequency of the resize event triggering
 })
