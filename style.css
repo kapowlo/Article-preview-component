@@ -29,12 +29,12 @@ body{
 }
 img:not(.card_image){
   /*targets all image elements(avatar img  + share svg) except the one with the class card_image  */
- max-inline-size: 100%; 
+ max-width: 100%; 
   display: block;
 }
 
 .card_image{
-  inline-size: 100%;/*without this the card image does not fill up the left section(there is some whitespace) */
+  width: 100%;/*without this the card image does not fill up the left section(there is some whitespace) */
   display: block;
 } 
 
@@ -99,14 +99,14 @@ main.container{
 }
 
 .text-section_title{
-  margin-block-start:0.55rem; /*the h1 title has a bit more margin top */
+  margin-top:0.55rem; /*the h1 title has a bit more margin top */
  
   font-size:clamp(1.17rem,0.75rem + 1.5vw, 2rem) ; /* font-size wont go below ~18px and will scale based on screen size */
   font-weight: 700;
   color: var(--very-dark-grayish-blue);
 }
 .text-section_paragraph{
-  margin-block-start:1.25rem; /*create space between paragraph and h1 title  */
+  margin-top:1.25rem; /*create space between paragraph and h1 title  */
   margin-block-end:1.25rem; /*create space between paragraph and content below it  */
 
   /*at 799px right before first media query br i want the font-size to be around 16px
@@ -239,27 +239,12 @@ color: var(--very-dark-grayish-blue);
 
 
 /*---------------------MEDIA  QUERIES(FOR LARGER SCREEN)--------------------  */
-/*at around 800px the card gets too big so i will limit the width
-second media query will be at ~1000px 
+/* only one media query for 1000px. Every screen size below wont be seeing the desktop active state,
+
+limiting the width of the card for 800px screen(the media query i had before) was not worth it there is too much white space
 */
 
-@media screen and (min-width:800px){
-  main.container{
-    background-color:orangered;
-
-    
-  }
-  .card{
-    max-width: 375px; /*stops card from getting too big */
-  }
-
-}
-
-
 @media screen and (min-width:1000px){
-  main.container{
-    background-color: bisque;
-  }
   .card{
     max-width:900px; /*override's previous media query's max-width value of 375px */
     
